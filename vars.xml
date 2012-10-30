@@ -1,0 +1,15 @@
+<include>
+
+  <X-PRE-PROCESS cmd="set" data="siteconfig_dir=/opt/sipfe/etc/freeswitch_siteconfig"/>
+
+
+  <!--# These variables need to be reassigned in site_vars.xml  -->
+
+  <X-PRE-PROCESS cmd="set" data="outside_ipv4=192.0.2.2"/>
+  <X-PRE-PROCESS cmd="set" data="inside_ipv4=10.0.0.2"/>
+
+  <X-PRE-PROCESS cmd="set" data="outside_ipv6=2001:DB8:01::05"/>
+  <X-PRE-PROCESS cmd="set" data="inside_ipv6=2001:DB8:02::05"/>
+
+  
+</include>

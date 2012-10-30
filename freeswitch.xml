@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+
+  SBC configuration for xlab1 project
+  http://txlab.wordpress.com/tag/xlab1/
+
+-->
+<document type="freeswitch/xml">
+  <!--#  vars.xml contains all the #set directives for the preprocessor.
+  -->
+  <X-PRE-PROCESS cmd="include" data="vars.xml"/>
+
+  <!--# site_vars.xml can be used to override variables defined in
+        vars.xml. This file is not included in poublic Git repository -->
+  <X-PRE-PROCESS cmd="include" data="site_vars.xml"/>
+
+  
+  <section name="configuration" description="Various Configuration">
+    <X-PRE-PROCESS cmd="include" data="autoload_configs/*.xml"/>
+  </section>
+  
+  <section name="dialplan" description="Regex/XML Dialplan">
+    <X-PRE-PROCESS cmd="include" data="dialplan/*.xml"/>
+  </section>
+
+  <!-- mod_sofia is reliant on the user data for authorization --> 
+  <section name="directory" description="User Directory">
+    <X-PRE-PROCESS cmd="include" data="directory/*.xml"/>
+  </section>
+
+  <X-PRE-PROCESS cmd="include" data="$${siteconfig_dir}/freeswitch_siteconfig.xml"/>
+
+</document>
