@@ -1,0 +1,50 @@
+This is a front-end SIP SBC configuration for the xlab1 project
+See for more details: https://txlab.wordpress.com/tag/xlab1/
+The SBC is implemented with FreeSWITCH.
+
+This work is licensed under a Creative Commons Attribution 3.0 License
+Author: Stanislav Sinyagin <ssinaygin@k-open.com>
+
+The FreeSWITCH daemon should be launched with -nonat option.
+
+The configuration defines two Sofia profiles: "inside" and
+"outside". Both profiles disallow registration and transfers, and the
+inside profile allows unauthenticated calls from internal network
+only. The outside profile is used for communicating with ITSP trunks.
+
+FreeSWITCH is built with the following command:
+
+./configure \
+  --with-openssl \
+  --enable-zrtp \
+  --bindir=/opt/sipfe/sbin \
+  --prefix=/opt/sipfe/freeswitch \
+  --localstatedir=/var \
+  --sysconfdir=/opt/sipfe/etc/freeswitch \
+  --with-rundir=/var/run/freeswitch
+
+The configuration consists of two parts: the common part is generic for
+similar designs, and is published on github. The private part contains
+all information specific to the site, including ITSP authentication
+credentials.
+
+The common part is located in "/opt/sipfe/etc/freeswitch". The file
+"site_vars.xml" is ignoired by Git and is dedicated for redefining the
+global variables that are declared in "vars.xml". At least the binding
+IP addresses and internal ACL needs to be defined in "site_vars.xml".
+
+
+The private part consists of the following files and directores:
+
+/opt/sipfe/etc/freeswitch/site_vars.xml
+ This file redefines global variables that are defined in "vars.xml".
+
+/opt/sipfe/etc/freeswitch_siteconfig/freeswitch_siteconfig.xml
+ This file can add global definitions if needed.
+
+/opt/sipfe/etc/freeswitch_siteconfig/sip_outside_gateways/*.xml
+ The outside Sofia gateways for ITSP authentication are defined here.
+ 
+  
+
+  

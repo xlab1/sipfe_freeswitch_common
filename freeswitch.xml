@@ -23,11 +23,6 @@
     <X-PRE-PROCESS cmd="include" data="dialplan/*.xml"/>
   </section>
 
-  <!-- mod_sofia is reliant on the user data for authorization --> 
-  <section name="directory" description="User Directory">
-    <X-PRE-PROCESS cmd="include" data="directory/*.xml"/>
-  </section>
-
   <X-PRE-PROCESS cmd="include" data="$${siteconfig_dir}/freeswitch_siteconfig.xml"/>
 
 </document>
