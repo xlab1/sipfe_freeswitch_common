@@ -44,7 +44,7 @@ The private part consists of the following files and directores:
 
 /opt/sipfe/etc/freeswitch_siteconfig/sip_outside_gateways/*.xml
  The outside Sofia gateways for ITSP authentication are defined here.
- 
-  
 
-  
+
+
+

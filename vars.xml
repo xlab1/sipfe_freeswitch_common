@@ -1,7 +1,6 @@
 <include>
 
-  <X-PRE-PROCESS cmd="set"
-                 data="siteconfig_dir=/opt/sipfe/etc/freeswitch_siteconfig"/>
+  <X-PRE-PROCESS cmd="set" data="siteconfig_dir=/opt/sipfe/etc/freeswitch_siteconfig"/>
 
 
   <!--# These variables need to be reassigned in site_vars.xml  -->
