@@ -11,7 +11,7 @@
   <X-PRE-PROCESS cmd="include" data="vars.xml"/>
 
   <!--# site_vars.xml can be used to override variables defined in
-        vars.xml. This file is not included in poublic Git repository -->
+        vars.xml. This file is not included in public Git repository -->
   <X-PRE-PROCESS cmd="include" data="site_vars.xml"/>
 
   

@@ -1,0 +1,84 @@
+<profile name="inside">
+
+  <!-- http://wiki.freeswitch.org/wiki/Sofia_Configuration_Files -->
+  <aliases>
+  </aliases>
+  
+  <gateways>
+  </gateways>
+
+  <domains>
+  </domains>
+
+  <settings>
+
+    <param name="user-agent-string" value="xlab1 SBC"/>
+    
+    <param name="debug" value="0"/>
+    
+    <param name="shutdown-on-fail" value="true"/>
+    
+    <param name="sip-trace" value="no"/>
+    <param name="sip-capture" value="no"/>
+
+    <!-- Don't be picky about negotiated DTMF just always offer 2833 and accept both 2833 and INFO -->
+    <param name="liberal-dtmf" value="true"/>
+   
+    <param name="log-auth-failures" value="false"/>
+    <param name="forward-unsolicited-mwi-notify" value="false"/>
+
+    <param name="context" value="inside"/>
+    
+    <param name="rfc2833-pt" value="101"/>
+    
+    <!-- port and addresses to bind -->
+    <param name="sip-port" value="$${inside_sip_port}"/>
+    <param name="rtp-ip" value="$${inside_bind_ipv4}"/>
+    <param name="sip-ip" value="$${inside_bind_ipv4}"/>
+    <param name="ext-rtp-ip" value="$${inside_bind_ipv4}"/>
+    <param name="ext-sip-ip" value="$${inside_bind_ipv4}"/>
+    
+    <param name="dialplan" value="XML"/>
+    
+    <param name="dtmf-duration" value="2000"/>    
+    <param name="rtp-timer-name" value="soft"/>
+    
+
+    <param name="disable-hold" value="true"/>
+
+    <param name="apply-inbound-acl" value="$${inside_ipv4_acl}"/>
+    
+    <!-- Caller-ID type (choose one, can be overridden by inbound call type and/or sip_cid_type channel variable -->
+    <!-- Remote-Party-ID header -->
+    <!--<param name="caller-id-type" value="rpid"/>-->
+
+    <!-- P-*-Identity family of headers -->
+    <!--<param name="caller-id-type" value="pid"/>-->
+
+    <!-- neither one -->
+    <!--<param name="caller-id-type" value="none"/>-->
+
+
+    <param name="record-path" value="$${recordings_dir}"/>
+    <param name="record-template" value="${caller_id_number}.${target_domain}.${strftime(%Y-%m-%d-%H-%M-%S)}.wav"/>
+    
+    <param name="manage-presence" value="false"/>
+    
+    <param name="inbound-codec-negotiation" value="generous"/>
+    
+    <!-- Let calls hit the dialplan before selecting codec for the a-leg -->
+    <param name="inbound-late-negotiation" value="true"/>
+
+    <!-- Allow ZRTP clients to negotiate end-to-end security associations (also enables late negotiation) -->
+    <param name="inbound-zrtp-passthru" value="true"/>
+
+    <!-- Disable Register and Transfer-->
+    <param name="disable-register" value="true"/>
+    <param name="disable-transfer" value="true"/>
+    
+    <!-- rtp inactivity timeout -->
+    <param name="rtp-timeout-sec" value="300"/>
+    <param name="rtp-hold-timeout-sec" value="1800"/>
+    
+  </settings>
+</profile>
