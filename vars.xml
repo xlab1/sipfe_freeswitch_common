@@ -18,5 +18,6 @@
 
 
   <X-PRE-PROCESS cmd="set" data="console_loglevel=debug"/>
+  <X-PRE-PROCESS cmd="set" data="call_debug=true"/>
   
 </include>
