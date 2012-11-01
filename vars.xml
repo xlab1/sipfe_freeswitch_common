@@ -17,5 +17,6 @@
   <X-PRE-PROCESS cmd="set" data="inside_ipv6_acl=2001:DB8:02::/48"/>
 
 
+  <X-PRE-PROCESS cmd="set" data="console_loglevel=debug"/>
   
 </include>
